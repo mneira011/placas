@@ -1,0 +1,16 @@
+[node-5-amd:40841] *** Process received signal ***
+[node-5-amd:40841] Signal: Segmentation fault (11)
+[node-5-amd:40841] Signal code: Address not mapped (1)
+[node-5-amd:40841] Failing at address: 0x18
+[node-5-amd:40841] [ 0] /lib64/libpthread.so.0() [0x3630a0f710]
+[node-5-amd:40841] [ 1] /opt/openmpi/lib/libmpi.so.1(opal_memory_ptmalloc2_int_free+0x2db) [0x7f9e94f0a7db]
+[node-5-amd:40841] [ 2] /opt/openmpi/lib/libmpi.so.1(opal_memory_ptmalloc2_free+0xd3) [0x7f9e94f0abc3]
+[node-5-amd:40841] [ 3] /opt/openmpi/lib/libmpi.so.1(+0x232012) [0x7f9e94f22012]
+[node-5-amd:40841] [ 4] /opt/openmpi/lib/libmpi.so.1(ompi_mpi_finalize+0x239) [0x7f9e94d800c9]
+[node-5-amd:40841] [ 5] ./placas.x(main+0x772) [0x401106]
+[node-5-amd:40841] [ 6] /lib64/libc.so.6(__libc_start_main+0xfd) [0x363021ed1d]
+[node-5-amd:40841] [ 7] ./placas.x() [0x4008d9]
+[node-5-amd:40841] *** End of error message ***
+--------------------------------------------------------------------------
+mpiexec noticed that process rank 12 with PID 40841 on node node-5-amd.local exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------

@@ -256,7 +256,7 @@ for(con=0;con<world_size;con++){
       printf("\n");
       //las lineas del sanduche
       for(con1 = 0 ; con1<nfilas*(fpp-2);con1++){
-        if(con1%(nfilas)==0 && con1!=0){
+        if(con1%(nfilas)==(nfilas-1) && con1!=0){
           printf("%f \n",vp[con1] );
         }else{
           printf("%f ",vp[con1] );
@@ -271,7 +271,7 @@ for(con=0;con<world_size;con++){
     MPI_Barrier(MPI_COMM_WORLD);
 }
 
-
+ printf("%d",world_size);
 
 
 
