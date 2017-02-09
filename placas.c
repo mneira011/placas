@@ -151,7 +151,7 @@ else if(world_rank == (world_size-1)){
       vp[con] = 0.0;
     }
 
-    for(con=(p2i - (nfilas+pi));con<(p2f-(nfilas+pi);con++){
+    for(con=(p2i - (nfilas+pi));con<(p2f-(nfilas+pi));con++){
       vp[con] = -V0/2.0;
     }
 
@@ -172,7 +172,7 @@ else{
   //el primer procesador jodido
   if(world_rank==pj1 ){
     //lenamos los extremos
-    for(con = 0; cont<nfilas;n++){
+    for(con = 0; con<nfilas;con++){
       vps[con]= 0.0;
       vpi[con]= 0.0;
     }
@@ -190,7 +190,7 @@ else{
   //el segundo procesador jodido
   else if(world_rank==pj2 ){
     //llenamos los extremos
-    for(con = 0; cont<nfilas;n++){
+    for(con = 0; con<nfilas;con++){
       vps[con]= 0.0;
       vpi[con]= 0.0;
     }
@@ -208,7 +208,7 @@ else{
   }
   // en caso que no le toque ninguna placa
   else{
-    for(con = 0; cont<nfilas;n++){
+    for(con = 0; con<nfilas;con++){
       vps[con]= 0.0;
       vpi[con]= 0.0;
     }
@@ -250,24 +250,25 @@ for(con=0;con<world_size;con++){
       //cada proc imprime los suyo
 
       //la primera linea
-      for(con1 = 0 ; con1<nfilas;con++){
-        printf("%f",vps[con1] );
+      for(con1 = 0 ; con1<nfilas;con1++){
+        printf("%f ",vps[con1] );
       }
       printf("\n");
       //las lineas del sanduche
-      for(con1 = 0 ; con1<nfilas*(fpp-2);con++){
-        if(con1%(nfilas-1)==0 && con1!=0){
-          printf("%f\n",vp[con1] );
+      for(con1 = 0 ; con1<nfilas*(fpp-2);con1++){
+        if(con1%(nfilas)==0 && con1!=0){
+          printf("%f \n",vp[con1] );
         }else{
-          printf("%f",vp[con1] );
+          printf("%f ",vp[con1] );
         }
       }
       //la ultima linea
-      for(con1 = 0 ; con1<nfilas;con++){
-        printf("%f",vpi[con1] );
+      for(con1 = 0 ; con1<nfilas;con1++){
+        printf("%f ",vpi[con1] );
       }
       printf("\n");
     }
+    MPI_Barrier(MPI_COMM_WORLD);
 }
 
 
